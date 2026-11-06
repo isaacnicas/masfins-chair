@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Masfin's Chair · Hair studio in Calgary</title>
+<meta name="description" content="Braids, weaves and wig installs in Calgary. Book on WhatsApp.">
+<!-- Draft preview: keep search engines away until Masfin approves. Remove this line at launch. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#2E211A">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Masfin's Chair">
+<meta property="og:description" content="Every part has its place. Braids, weaves and wig installs in Calgary.">
+<meta property="og:image" content="SITE_URL/images/og-image.png">
+<meta property="og:url" content="SITE_URL/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..600,0..100&family=Nunito+Sans:opsz,wght@6..12,300..700&display=swap">
+<style>
+/* Phone first: one unhurried column; wider screens get two-column bands. Jokes set up high pay off lower down. */
+:root{
+  --cream:#F5EDE1; --paper:#FBF6EF; --sand:#EADCC8;
+  --coffee:#2E211A; --muted:#6A5546; --line:#DCCBB5;
+  --honey:#C8963E; --honey-ink:#8A6220; --clay:#9C4F35; --sage:#56664D;
+  --night:#2E211A; --night-2:#3A2B22; --night-line:#4A392E; --night-fg:#F2E8DA; --night-muted:#C9B8A6; --night-honey:#D9A852;
+  --land:#4A382D; --land-hover:#5C4738; --land-on:#B8863A; --land-sel:#E0957A;
+  --display:"Fraunces", Georgia, "Times New Roman", serif;
+  --body:"Nunito Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --gutter:max(20px, env(safe-area-inset-left, 0px));
+  --gutter-r:max(20px, env(safe-area-inset-right, 0px));
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){ :root{
+  --cream:#1C1511; --paper:#241A15; --sand:#2C211B; --coffee:#F2E8DA; --muted:#C2B2A2; --line:#3E3029;
+  --honey:#D9A852; --honey-ink:#D9A852; --clay:#E0957A; --sage:#A3B596;
+  --night:#120D0A; --night-2:#1E1612; --night-line:#3A2C24; --land:#3A2C24; --land-hover:#4B3A2F; color-scheme:dark } }
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%; scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+body{margin:0; background:var(--cream); color:var(--coffee); font-family:var(--body); font-size:17px; line-height:1.65; padding-bottom:calc(76px + env(safe-area-inset-bottom, 0px))}
+img{max-width:100%; display:block}
+a{color:var(--clay)} a:hover{color:var(--coffee)}
+.wrap{max-width:1160px; margin:0 auto; padding-left:var(--gutter); padding-right:var(--gutter-r)}
+.soft{font-family:var(--display); font-variation-settings:"SOFT" 100, "opsz" 96; font-weight:350; letter-spacing:-0.01em; text-wrap:balance}
+.eyebrow{font-size:12.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--sage); font-weight:700; margin:0}
+.h2{font-size:clamp(32px, 7.5vw, 56px); line-height:1.08; margin:0}
+.aside{font-family:var(--display); font-style:italic; font-variation-settings:"SOFT" 100; font-size:19px; color:var(--muted); margin:0}
+.band{padding-block:72px}
+.stack{display:flex; flex-direction:column; gap:14px}
+:focus-visible{outline:3px solid var(--honey); outline-offset:3px}
+
+/* Preview note */
+.preview{background:var(--honey); color:#2E211A; font-size:13.5px; line-height:1.45; text-align:center; padding:8px var(--gutter-r) 8px var(--gutter); padding-top:calc(8px + env(safe-area-inset-top, 0px))}
+
+/* Header */
+header.top{display:flex; justify-content:space-between; align-items:center; gap:12px; padding-block:16px}
+.brand{text-decoration:none; color:var(--coffee); font-size:24px}
+.navlinks{display:none}
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:48px; padding:0 22px; border-radius:999px; background:var(--coffee); color:var(--paper); text-decoration:none; font-weight:700; font-size:16px; border:0; cursor:pointer; font-family:var(--body); white-space:nowrap}
+.btn:hover{color:var(--paper); background:var(--clay)}
+.btn.small{min-height:44px; padding:0 16px; font-size:14.5px}
+.btn.light{background:var(--night-honey); color:#2E211A} .btn.light:hover{background:var(--night-fg); color:#2E211A}
+.btn[disabled]{opacity:.45; cursor:not-allowed}
+.btn svg{flex:none}
+
+/* Phone booking bar */
+.bookbar{position:fixed; left:0; right:0; bottom:0; z-index:20; background:var(--paper); border-top:1px solid var(--line);
+  padding:10px var(--gutter-r) calc(10px + env(safe-area-inset-bottom, 0px)) var(--gutter); display:flex; gap:10px; align-items:center}
+.bookbar .btn{flex:1}
+.bookbar .num{font-size:13px; color:var(--muted); line-height:1.3; text-align:right}
+
+/* Photo frames */
+.ph{position:relative; background:var(--sand); border-radius:6px; overflow:hidden; display:flex; align-items:flex-end}
+.ph img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+.ph-label{position:relative; margin:10px; padding:4px 9px; background:var(--paper); color:var(--muted); font-size:12px; border-radius:4px; line-height:1.4}
+
+/* Woven border */
+.tibeb{display:block; width:100%; height:14px}
+.tb-a{fill:var(--honey)} .tb-b{fill:var(--clay)} .tb-c{fill:var(--sage)}
+
+/* Hero */
+.hero{display:grid; gap:32px; padding-block:24px 56px}
+.hero h1{font-size:clamp(44px, 12vw, 92px); line-height:1.0; margin:0}
+.lede{font-size:19px; color:var(--muted); margin:0; max-width:30ch}
+.hero .ph{aspect-ratio:4 / 4.4; border-radius:220px 220px 8px 8px}
+.wa-num{white-space:nowrap}
+.num-inline{color:var(--muted); font-size:15px; user-select:all; font-variant-numeric:tabular-nums}
+
+/* About */
+.about{display:grid; gap:32px}
+.about .ph{aspect-ratio:1 / 1}
+.about p{margin:0; max-width:56ch}
+blockquote.quote{margin:4px 0 0; padding:0; font-family:var(--display); font-style:italic; font-variation-settings:"SOFT" 100; font-size:22px; line-height:1.4; color:var(--clay); max-width:36ch}
+
+/* Services */
+.jumps{display:flex; gap:8px; overflow-x:auto; scrollbar-width:none; margin-inline:calc(var(--gutter) * -1); padding-inline:var(--gutter); padding-bottom:4px}
+.jumps::-webkit-scrollbar{display:none}
+.jump{flex:none; display:inline-flex; align-items:center; min-height:44px; padding:0 16px; border-radius:999px; border:1px solid var(--line); color:var(--coffee); text-decoration:none; font-weight:600; font-size:15px; background:var(--cream)}
+.svc-grid{display:grid; gap:44px}
+.svc{display:flex; flex-direction:column; gap:4px; scroll-margin-top:16px}
+.svc h3{font-size:30px; margin:0}
+.svc .tag{font-family:var(--display); font-style:italic; font-variation-settings:"SOFT" 100; color:var(--clay); font-size:18px; margin:0 0 6px}
+.svc ul{list-style:none; margin:0; padding:0}
+.svc li{display:flex; justify-content:space-between; gap:14px; padding:12px 0; border-bottom:1px solid var(--line)}
+.price{color:var(--honey-ink); font-variant-numeric:tabular-nums; white-space:nowrap; font-weight:600}
+.extras{display:flex; flex-direction:column; gap:0; padding-top:20px; border-top:2px solid var(--coffee); scroll-margin-top:16px}
+.extras h3{margin:0 0 6px; font-size:16px}
+.extras div{display:flex; justify-content:space-between; gap:14px; padding:10px 0; border-bottom:1px solid var(--line)}
+
+/* Booking */
+.steps{display:grid; gap:28px; margin:0; padding:0; list-style:none}
+.steps li{display:grid; grid-template-columns:44px 1fr; gap:4px 14px}
+.step-n{grid-row:span 2; font-family:var(--display); font-variation-settings:"SOFT" 100; font-size:44px; color:var(--honey); line-height:1}
+.steps h3{margin:0; font-size:18px}
+.steps p{margin:0; color:var(--muted)}
+
+/* Gallery */
+.chips{display:flex; gap:8px; overflow-x:auto; scrollbar-width:none; margin-inline:calc(var(--gutter) * -1); padding-inline:var(--gutter); padding-bottom:4px}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none; min-height:44px; padding:0 16px; border-radius:999px; border:1px solid var(--line); background:transparent; color:var(--coffee); font:600 15px var(--body); cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--coffee); color:var(--paper); border-color:var(--coffee)}
+.gal{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px}
+.piece{display:flex; flex-direction:column; gap:8px; margin:0}
+.piece .ph{aspect-ratio:3 / 4}
+.piece figcaption{font-size:13.5px; color:var(--muted); line-height:1.45}
+.piece figcaption b{color:var(--coffee)}
+.piece[hidden]{display:none}
+
+/* Questions */
+.faq{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:16px; padding:18px 0; font-weight:700; font-size:17px; min-height:48px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+"; font-family:var(--display); font-size:28px; font-weight:300; color:var(--clay); line-height:1; flex:none}
+.faq details[open] summary::after{content:"\2013"}
+.faq p{margin:0 0 20px; color:var(--muted)}
+
+/* Welcome map */
+.night{background:var(--night); color:var(--night-fg)}
+.night .eyebrow{color:var(--night-honey)}
+.map-grid{display:grid; gap:32px}
+#map{width:100%; height:auto; display:block; max-width:560px; margin-inline:auto; touch-action:manipulation}
+.land{fill:var(--land); stroke:var(--night); stroke-width:.8; cursor:pointer; transition:fill .4s ease}
+.land:hover{fill:var(--land-hover)}
+.land.on, .isle.on{fill:var(--land-on)}
+.land.sel, .isle.sel{fill:var(--land-sel)}
+.isle{fill:var(--land); stroke:var(--night-muted); stroke-width:1; cursor:pointer}
+.pin{fill:var(--night-fg); opacity:.9; pointer-events:none}
+.glow{fill:var(--night-honey); opacity:.22; pointer-events:none}
+@media (prefers-reduced-motion: reduce){ .land{transition:none} }
+form.pinform{display:flex; flex-direction:column; gap:14px; padding:22px; border-radius:14px; background:var(--night-2)}
+.pair{display:grid; gap:14px}
+.field{display:flex; flex-direction:column; gap:6px; min-width:0}
+.field label{font-size:14px; color:var(--night-muted); font-weight:600}
+.field select, .field input{min-height:50px; border-radius:8px; border:1px solid #5A4639; background:var(--night); color:var(--night-fg); padding:0 14px; font-size:16px; font-family:var(--body); width:100%}
+.thanks{color:var(--night-honey); font-family:var(--display); font-style:italic; font-size:18px}
+.wall{display:flex; flex-wrap:wrap; gap:10px}
+.greet{display:flex; flex-direction:column; padding:11px 15px; border-radius:10px; background:var(--night-2); border:1px solid var(--night-line); min-width:0; max-width:100%}
+.greet b{font-family:var(--display); font-variation-settings:"SOFT" 100; font-weight:400; font-size:21px; line-height:1.2; overflow-wrap:anywhere}
+.greet span{font-size:13px; color:var(--night-muted); overflow-wrap:anywhere}
+.small-cap{font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--night-honey); margin:0}
+
+/* Farewell + footer */
+.farewell{display:flex; flex-direction:column; align-items:center; gap:22px; text-align:center; padding-block:16px 72px}
+.farewell p{margin:0; font-size:clamp(30px, 8vw, 44px); line-height:1.15}
+footer{background:var(--night); color:var(--night-muted); border-top:1px solid var(--night-line); padding-block:36px; font-size:14px}
+footer .wrap{display:flex; flex-direction:column; gap:22px}
+.socials{display:flex; gap:10px}
+.soc{display:inline-flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:999px; border:1px solid #5A4639; color:var(--night-fg)}
+.soc:hover{border-color:var(--night-honey); color:var(--night-honey)}
+
+/* Wider screens */
+@media (min-width: 900px){
+  body{padding-bottom:0}
+  .bookbar{display:none}
+  .brand{font-size:28px}
+  header.top{padding-block:22px}
+  .navlinks{display:flex; gap:24px; align-items:center; font-weight:600; font-size:15px}
+  .navlinks a:not(.btn){color:var(--muted); text-decoration:none}
+  .navlinks a:not(.btn):hover{color:var(--coffee)}
+  .hero{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); gap:64px; align-items:center; padding-block:48px 96px}
+  .hero .ph{aspect-ratio:4 / 5; border-radius:240px 240px 8px 8px}
+  .band{padding-block:112px}
+  .about{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); gap:72px; align-items:start}
+  .svc-grid{grid-template-columns:repeat(2, minmax(0,1fr)); gap:56px 64px}
+  .extras{flex-direction:row; flex-wrap:wrap; gap:10px 28px; align-items:baseline}
+  .extras h3{margin:0}
+  .extras div{border:0; padding:0; gap:8px}
+  .jumps, .chips{margin-inline:0; padding-inline:0; flex-wrap:wrap; overflow:visible}
+  .steps{grid-template-columns:repeat(3, minmax(0,1fr)); gap:40px}
+  .steps li{grid-template-columns:1fr}
+  .step-n{grid-row:auto}
+  .gal{grid-template-columns:repeat(4, minmax(0,1fr)); gap:20px}
+  .questions{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.4fr); gap:72px; align-items:start}
+  .map-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:56px; align-items:start}
+  .pair{grid-template-columns:repeat(2, minmax(0,1fr))}
+  footer .wrap{flex-direction:row; justify-content:space-between; align-items:center}
+}
+</style>
+</head>
+<body>
+
+<div class="preview">First look, still in progress. Anything in [brackets] is waiting for Masfin's details, and the pictures are stand-ins for real photos.</div>
+
+<header class="wrap top">
+  <a class="brand soft" href="#top">Masfin's Chair</a>
+  <nav class="navlinks" aria-label="Main">
+    <a href="#services">Services</a>
+    <a href="#pieces">Pieces</a>
+    <a href="#questions">Questions</a>
+    <a href="#home">Welcome wall</a>
+    <a class="btn small wa" href="#book" target="_blank" rel="noopener">Book on WhatsApp</a>
+  </nav>
+</header>
+
+<main>
+  <!-- Hero: sets up "place" (map) and "part" (farewell) -->
+  <section id="top" class="wrap hero">
+    <div class="stack" style="gap:24px">
+      <p class="eyebrow">Hair studio · Calgary</p>
+      <h1 class="soft">Every part has its place.</h1>
+      <p class="lede">Braids, weaves and wig installs in Calgary.</p>
+      <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap">
+        <a class="btn wa" href="#book" target="_blank" rel="noopener">Book on WhatsApp</a>
+        <span class="num-inline wa-num"></span>
+      </div>
+    </div>
+    <div class="ph">
+      <img src="images/hero.svg" alt="" fetchpriority="high">
+      <span class="ph-label">Photo to come: Masfin mid-part, comb in hand</span>
+    </div>
+  </section>
+
+  <svg class="tibeb" aria-hidden="true" preserveAspectRatio="none"><defs><pattern id="tb1" width="42" height="14" patternUnits="userSpaceOnUse"><path class="tb-a" d="M0 7 7 0 14 7 7 14Z"/><path class="tb-b" d="M14 7 21 0 28 7 21 14Z"/><path class="tb-c" d="M28 7 35 0 42 7 35 14Z"/></pattern></defs><rect width="100%" height="14" fill="url(#tb1)"/></svg>
+
+  <!-- About: sets up "fill a map" -->
+  <section class="wrap band about" aria-labelledby="about-h">
+    <div class="ph"><img src="images/about.svg" alt="" loading="lazy"><span class="ph-label">Photo to come: hands at work, close up</span></div>
+    <div class="stack" style="gap:20px; min-width:0">
+      <p class="eyebrow">About us</p>
+      <h2 id="about-h" class="soft h2">Rooted in Care</h2>
+      <p>We don't call a style finished until you love what you see. Every part is checked twice, every row laid by hand, and nobody leaves the chair rushed.</p>
+      <p>Our regulars come from all over. Between them, they could fill a map.</p>
+      <blockquote class="quote">“[A few words from Masfin, in his own voice.]”</blockquote>
+    </div>
+  </section>
+
+  <!-- Services: sets up "twist" (footer) -->
+  <section id="services" class="band" style="background:var(--paper)">
+    <div class="wrap stack" style="gap:36px">
+      <div class="stack">
+        <p class="eyebrow">Services</p>
+        <h2 class="soft h2">A twist in the right direction.</h2>
+        <p style="margin:0; max-width:44ch; color:var(--muted); font-size:15.5px">Starting prices. Length, size and added hair shape the final price, and you'll know it before the first part.</p>
+      </div>
+      <nav class="jumps" aria-label="Service menu">
+        <a class="jump" href="#svc-braids">Braids</a>
+        <a class="jump" href="#svc-weaves">Weaves</a>
+        <a class="jump" href="#svc-wigs">Wigs</a>
+        <a class="jump" href="#svc-little">Little chairs</a>
+        <a class="jump" href="#svc-extras">Extras</a>
+      </nav>
+      <div class="svc-grid">
+        <div id="svc-braids" class="svc">
+          <h3 class="soft">Braids</h3>
+          <p class="tag">Good things come to those who braid.</p>
+          <ul>
+            <li><span>Box &amp; knotless braids</span><span class="price">from $[ ]</span></li>
+            <li><span>Cornrows &amp; feed-in</span><span class="price">from $[ ]</span></li>
+            <li><span>Fulani braids</span><span class="price">from $[ ]</span></li>
+            <li><span>Goddess &amp; boho braids</span><span class="price">from $[ ]</span></li>
+            <li><span>Twists</span><span class="price">from $[ ]</span></li>
+            <li><span>Crochet</span><span class="price">from $[ ]</span></li>
+          </ul>
+        </div>
+        <div id="svc-weaves" class="svc">
+          <h3 class="soft">Weaves</h3>
+          <p class="tag">Weave been expecting you.</p>
+          <ul>
+            <li><span>Sew-in weave</span><span class="price">from $[ ]</span></li>
+            <li><span>Quick weave</span><span class="price">from $[ ]</span></li>
+            <li><span>Closure or frontal install</span><span class="price">from $[ ]</span></li>
+          </ul>
+        </div>
+        <div id="svc-wigs" class="svc">
+          <h3 class="soft">Wigs</h3>
+          <p class="tag">Go wig or go home.</p>
+          <ul>
+            <li><span>Wig install</span><span class="price">from $[ ]</span></li>
+            <li><span>Wig styling &amp; refresh</span><span class="price">from $[ ]</span></li>
+          </ul>
+        </div>
+        <div id="svc-little" class="svc">
+          <h3 class="soft">Little chairs</h3>
+          <p class="tag">Picture-day ready.</p>
+          <ul>
+            <li><span>Children's braids &amp; cornrows</span><span class="price">from $[ ]</span></li>
+            <li><span>Children's twists with beads</span><span class="price">from $[ ]</span></li>
+          </ul>
+        </div>
+      </div>
+      <div id="svc-extras" class="extras">
+        <h3>Extras</h3>
+        <div><span>Take-down</span><span class="price">from $[ ]</span></div>
+        <div><span>Wash &amp; blow-dry</span><span class="price">from $[ ]</span></div>
+        <div><span>Detangle</span><span class="price">from $[ ]</span></div>
+        <div><span>Beads</span><span class="price">from $[ ]</span></div>
+        <div><span>Hair supplied</span><span class="price">[ask]</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking: sets up "isn't going anywhere" (gallery caption) -->
+  <section id="book" class="band" style="background:var(--sand)">
+    <div class="wrap stack" style="gap:36px">
+      <div class="stack">
+        <p class="eyebrow">Booking</p>
+        <h2 class="soft h2">Save a seat.</h2>
+        <p class="aside">Take your time. Your hair isn't going anywhere.</p>
+      </div>
+      <ol class="steps">
+        <li><span class="step-n" aria-hidden="true">1</span><h3>Send a photo</h3><p>Message us on WhatsApp with the style you have in mind. Bring the photo, we'll handle the parts.</p></li>
+        <li><span class="step-n" aria-hidden="true">2</span><h3>Pick a day</h3><p>We reply with a time and a price. Open [days and hours].</p></li>
+        <li><span class="step-n" aria-hidden="true">3</span><h3>Come by</h3><p>Our studio is in [area], Calgary. The address comes with your confirmation.</p></li>
+      </ol>
+      <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap">
+        <a class="btn wa" href="#book" target="_blank" rel="noopener">Book on WhatsApp</a>
+        <span class="wa-num" style="font-size:18px; font-weight:700; user-select:all; font-variant-numeric:tabular-nums"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pieces -->
+  <section id="pieces" class="wrap band stack" style="gap:28px">
+    <div class="stack">
+      <p class="eyebrow">Pieces</p>
+      <h2 class="soft h2">A few good looks.</h2>
+      <p class="aside">The details take time. The compliments don't.</p>
+    </div>
+    <div class="chips" role="group" aria-label="Filter by style">
+      <button type="button" class="chip" data-f="all" aria-pressed="true">All</button>
+      <button type="button" class="chip" data-f="braids" aria-pressed="false">Braids</button>
+      <button type="button" class="chip" data-f="weaves" aria-pressed="false">Weaves</button>
+      <button type="button" class="chip" data-f="wigs" aria-pressed="false">Wigs</button>
+      <button type="button" class="chip" data-f="little" aria-pressed="false">Little chairs</button>
+    </div>
+    <div class="gal" id="gal">
+      <figure class="piece" data-cat="braids"><div class="ph"><img src="images/knotless.svg" alt="" loading="lazy"><span class="ph-label">Photo to come</span></div><figcaption><b>Knotless, mid-back</b> · [6] hours in the chair</figcaption></figure>
+      <figure class="piece" data-cat="braids"><div class="ph"><img src="images/cornrows.svg" alt="" loading="lazy"><span class="ph-label">Photo to come</span></div><figcaption><b>Feed-in cornrows</b> · [3] hours</figcaption></figure>
+      <figure class="piece" data-cat="weaves"><div class="ph"><img src="images/sewin.svg" alt="" loading="lazy"><span class="ph-label">Photo to come</span></div><figcaption><b>Sew-in with closure</b> · [4] hours</figcaption></figure>
+      <figure class="piece" data-cat="wigs"><div class="ph"><img src="images/wig.svg" alt="" loading="lazy"><span class="ph-label">Photo to come</span></div><figcaption><b>Frontal wig install</b> · [2] hours</figcaption></figure>
+      <figure class="piece" data-cat="braids"><div class="ph"><img src="images/fulani.svg" alt="" loading="lazy"><span class="ph-label">Photo to come</span></div><figcaption><b>Fulani, beaded</b> · Six hours later, it still isn't going anywhere.</figcaption></figure>
+      <figure class="piece" data-cat="little"><div class="ph"><img src="images/little.svg" alt="" loading="lazy"><span class="ph-label">Photo to come</span></div><figcaption><b>Little chairs</b> · Beaded twists, [2] hours</figcaption></figure>
+      <figure class="piece" data-cat="weaves"><div class="ph"><img src="images/quickweave.svg" alt="" loading="lazy"><span class="ph-label">Photo to come</span></div><figcaption><b>Quick weave</b> · [2] hours</figcaption></figure>
+      <figure class="piece" data-cat="braids"><div class="ph"><img src="images/boho.svg" alt="" loading="lazy"><span class="ph-label">Photo to come</span></div><figcaption><b>Boho knotless</b> · Same you. Different reflection.</figcaption></figure>
+    </div>
+    <p style="margin:0; text-align:center; font-family:var(--display); font-style:italic; font-variation-settings:'SOFT' 100; font-size:20px; color:var(--muted)">“[Kind words from a client, with her permission.]”</p>
+  </section>
+
+  <!-- Questions -->
+  <section id="questions" class="band" style="background:var(--paper)">
+    <div class="wrap questions stack" style="gap:28px">
+      <div class="stack">
+        <p class="eyebrow">Questions</p>
+        <h2 class="soft h2">Before your appointment</h2>
+        <p class="aside">Plait and simple.</p>
+        <p style="margin:0; color:var(--muted)">Something else on your mind? <a class="wa" href="#book" target="_blank" rel="noopener" style="font-weight:700">Ask us on WhatsApp</a>.</p>
+      </div>
+      <div class="faq">
+        <details><summary>Do I bring my own hair?</summary><p>[Masfin to confirm: bring your own, or we supply it for an extra $[ ].]</p></details>
+        <details><summary>How long will my style take?</summary><p>Anywhere from [2] to [8] hours, depending on size and length. We'll give you an estimate when you book.</p></details>
+        <details><summary>Should I come with washed hair?</summary><p>[Masfin to confirm: clean, dry and detangled, or wash on arrival.]</p></details>
+        <details><summary>Can I bring my child?</summary><p>Little chairs are welcome. [Masfin to confirm ages and styles.]</p></details>
+        <details><summary>How do I pay?</summary><p>[Cash, e-transfer or card?]</p></details>
+        <details><summary>What if I need to change my time?</summary><p>Knot today? No problem. Message us as early as you can and we'll find another time. [Masfin to confirm any notice needed.]</p></details>
+        <details><summary>Where is the studio?</summary><p>In [area], Calgary. The address comes with your confirmation.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Welcome wall: pays off "place" and "fill a map" -->
+  <section id="home" class="night band">
+    <div class="wrap stack" style="gap:36px">
+      <div class="stack" style="max-width:680px">
+        <p class="eyebrow">Welcome wall</p>
+        <h2 class="soft h2">Find your place on the map.</h2>
+        <p style="margin:0; color:var(--night-muted)">Wherever you're from, there's a seat here. Pin your country and leave your word for welcome.</p>
+        <p id="count" style="margin:0; color:var(--night-honey); font-weight:600" aria-live="polite"></p>
+      </div>
+      <div class="map-grid">
+        <svg id="map" viewBox="0 0 520 560" role="img" aria-label="Map of Africa. Countries glow where visitors have left a welcome."><text x="260" y="280" text-anchor="middle" fill="#C9B8A6" font-size="16">Drawing the map…</text></svg>
+        <div class="stack" style="gap:28px; min-width:0">
+          <form class="pinform" id="pinform" novalidate>
+            <div class="pair">
+              <div class="field"><label for="f-country">Where is home?</label><select id="f-country"><option value="">Choose a country</option></select></div>
+              <div class="field"><label for="f-region">Region (optional)</label><input id="f-region" type="text" maxlength="30" placeholder="Arusha" autocomplete="off"></div>
+            </div>
+            <div class="pair">
+              <div class="field"><label for="f-greet">Your word for welcome</label><input id="f-greet" type="text" maxlength="40" placeholder="Karibu" autocomplete="off"></div>
+              <div class="field"><label for="f-lang">Language (optional)</label><input id="f-lang" type="text" maxlength="30" placeholder="Swahili" autocomplete="off"></div>
+            </div>
+            <div style="display:flex; gap:14px; align-items:center; flex-wrap:wrap">
+              <button type="submit" class="btn light" id="pinbtn" disabled>Pin it</button>
+              <span class="thanks" id="thanks" role="status"></span>
+            </div>
+            <p style="margin:0; font-size:13px; color:var(--night-muted)">No names. Just a place and a word. You can also tap the map.</p>
+          </form>
+          <div class="stack" style="gap:12px">
+            <p class="small-cap">The welcome wall</p>
+            <div class="wall" id="wall"></div>
+            <p id="examples-note" style="margin:0; font-size:13px; color:var(--night-muted)">The first eight are examples to show how the wall looks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Farewell: pays off the hero's "part" -->
+  <section class="night">
+    <div class="wrap farewell">
+      <svg class="tibeb" aria-hidden="true" preserveAspectRatio="none" style="max-width:168px"><defs><pattern id="tb2" width="42" height="14" patternUnits="userSpaceOnUse"><path class="tb-a" d="M0 7 7 0 14 7 7 14Z"/><path class="tb-b" d="M14 7 21 0 28 7 21 14Z"/><path class="tb-c" d="M28 7 35 0 42 7 35 14Z"/></pattern></defs><rect width="100%" height="14" fill="url(#tb2)"/></svg>
+      <p class="soft" style="color:var(--night-fg)">Until the next part.</p>
+      <a class="btn light wa" href="#book" target="_blank" rel="noopener">Book your next one</a>
+    </div>
+  </section>
+</main>
+
+<!-- Footer: pays off "A twist in the right direction" -->
+<footer>
+  <div class="wrap">
+    <div class="stack" style="gap:6px; min-width:0">
+      <span class="soft" style="font-size:22px; color:var(--night-fg)">Masfin's Chair</span>
+      <span style="font-family:var(--display); font-style:italic; font-size:16px">No need to get your hair in a twist. That's our job.</span>
+      <span>Studio · [area], Calgary, AB · WhatsApp <span class="wa-num"></span></span>
+    </div>
+    <nav class="socials" aria-label="Social media">
+      <a class="soc" href="#top" aria-label="Instagram (link to come)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".9" fill="currentColor" stroke="none"/></svg></a>
+      <a class="soc" href="#top" aria-label="TikTok (link to come)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M14 4v10.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 4c.6 2.6 2.4 4.2 5 4.5"/></svg></a>
+      <a class="soc" href="#top" aria-label="Facebook (link to come)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M14.5 7.5h2V4h-2.5A3.5 3.5 0 0 0 10.5 7.5V10H8v3.5h2.5V20h3.5v-6.5h2.4l.6-3.5h-3V8a.5.5 0 0 1 .5-.5Z"/></svg></a>
+      <a class="soc wa" href="#book" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.2-3.8A8 8 0 1 1 8 19z"/><path d="M9 9.5c.2 2.4 2.6 4.8 5 5l1-1.4-1.6-.9-.8.8c-.9-.4-1.7-1.2-2.1-2.1l.8-.8-.9-1.6Z"/></svg></a>
+    </nav>
+  </div>
+</footer>
+
+<!-- Phone booking bar -->
+<div class="bookbar" role="region" aria-label="Book">
+  <a class="btn wa" href="#book" target="_blank" rel="noopener">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.2-3.8A8 8 0 1 1 8 19z"/></svg>
+    Book on WhatsApp
+  </a>
+</div>
+
+<script>
+// ---- Edit these two lines when Masfin confirms his details ----
+var WHATSAPP_NUMBER = '587718224X';   // 10 digits, no spaces. X = digit still missing.
+var BOOKING_MESSAGE = "Hello! I'd like to book a style.";
+// ----------------------------------------------------------------
+
+(function () {
+  // WhatsApp links and number
+  var digits = WHATSAPP_NUMBER.replace(/[^0-9Xx]/g, '');
+  var shown = digits.length === 10 ? '(' + digits.slice(0, 3) + ') ' + digits.slice(3, 6) + '-' + digits.slice(6) : WHATSAPP_NUMBER;
+  var complete = /^[0-9]{10}$/.test(digits);
+  var link = complete ? 'https://wa.me/1' + digits + '?text=' + encodeURIComponent(BOOKING_MESSAGE) : '#book';
+  document.querySelectorAll('a.wa').forEach(function (a) {
+    a.href = link;
+    if (!complete) { a.removeAttribute('target'); a.removeAttribute('rel'); }
+  });
+  document.querySelectorAll('.wa-num').forEach(function (s) { s.textContent = shown; });
+
+  // Gallery filters
+  var chips = document.querySelectorAll('.chip');
+  var pieces = document.querySelectorAll('#gal .piece');
+  chips.forEach(function (c) {
+    c.addEventListener('click', function () {
+      var f = c.getAttribute('data-f');
+      chips.forEach(function (o) { o.setAttribute('aria-pressed', o === c ? 'true' : 'false'); });
+      pieces.forEach(function (p) { p.hidden = !(f === 'all' || p.getAttribute('data-cat') === f); });
+    });
+  });
+
+  // Welcome map
+  var SAMPLES = [
+    { g: 'Karibu', lang: 'Swahili', id: '834' }, { g: 'Akwaaba', lang: 'Twi', id: '288' },
+    { g: 'Ẹ káàbọ̀', lang: 'Yoruba', id: '566' }, { g: 'Bienvenue', lang: 'French', id: '180' },
+    { g: 'Soo dhawoow', lang: 'Somali', id: '706' }, { g: 'Marhaban', lang: 'Arabic', id: '729' },
+    { g: 'Wamukelekile', lang: 'Zulu', id: '710' }, { g: 'Sannu da zuwa', lang: 'Hausa', id: '562' }
+  ];
+  var STORE = 'masfins-chair-welcomes';
+  var added = [];
+  try { added = JSON.parse(localStorage.getItem(STORE) || '[]') || []; } catch (e) { added = []; }
+  var countries = [], byId = {}, sel = '';
+  var NS = 'http://www.w3.org/2000/svg';
+  var map = document.getElementById('map');
+  var form = document.getElementById('pinform');
+  var fCountry = document.getElementById('f-country');
+  var fRegion = document.getElementById('f-region');
+  var fGreet = document.getElementById('f-greet');
+  var fLang = document.getElementById('f-lang');
+  var btn = document.getElementById('pinbtn');
+  var thanks = document.getElementById('thanks');
+  var wallEl = document.getElementById('wall');
+  var countEl = document.getElementById('count');
+  var noteEl = document.getElementById('examples-note');
+  var shapes = {}, pinLayer;
+
+  function entries() { return added.concat(SAMPLES); }
+  function placeName(id) { return id === 'elsewhere' ? 'Somewhere else' : (byId[id] ? byId[id].name : ''); }
+
+  function render() {
+    var all = entries(), counts = {};
+    all.forEach(function (e) { counts[e.id] = (counts[e.id] || 0) + 1; });
+    Object.keys(shapes).forEach(function (id) {
+      var el = shapes[id];
+      el.classList.toggle('on', !!counts[id]);
+      el.classList.toggle('sel', sel === id);
+    });
+    if (pinLayer) {
+      while (pinLayer.firstChild) pinLayer.removeChild(pinLayer.firstChild);
+      countries.forEach(function (c) {
+        if (!counts[c.id]) return;
+        var g = document.createElementNS(NS, 'circle');
+        g.setAttribute('cx', c.cx); g.setAttribute('cy', c.cy); g.setAttribute('r', 7 + Math.min(counts[c.id], 6) * 2);
+        g.setAttribute('class', 'glow'); pinLayer.appendChild(g);
+        var p = document.createElementNS(NS, 'circle');
+        p.setAttribute('cx', c.cx); p.setAttribute('cy', c.cy); p.setAttribute('r', 2.6);
+        p.setAttribute('class', 'pin'); pinLayer.appendChild(p);
+      });
+    }
+    wallEl.textContent = '';
+    all.forEach(function (e) {
+      var card = document.createElement('div'); card.className = 'greet';
+      var b = document.createElement('b'); b.textContent = e.g;
+      var s = document.createElement('span');
+      var where = e.region ? e.region + ', ' + placeName(e.id) : placeName(e.id);
+      s.textContent = [e.lang, where].filter(Boolean).join(' · ');
+      card.appendChild(b); card.appendChild(s); wallEl.appendChild(card);
+    });
+    countEl.textContent = all.length + ' welcomes from ' + Object.keys(counts).length + ' countries. The map is filling up.';
+    noteEl.hidden = added.length > 0;
+    btn.disabled = !(sel && fGreet.value.trim());
+  }
+
+  function choose(id) { sel = id; fCountry.value = id; thanks.textContent = ''; render(); }
+
+  fCountry.addEventListener('change', function () { choose(fCountry.value); });
+  fGreet.addEventListener('input', render);
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var g = fGreet.value.trim();
+    if (!sel || !g) return;
+    var entry = { g: g, lang: fLang.value.trim(), region: fRegion.value.trim(), id: sel };
+    added.unshift(entry);
+    try { localStorage.setItem(STORE, JSON.stringify(added.slice(0, 50))); } catch (e) {}
+    fGreet.value = ''; fLang.value = ''; fRegion.value = '';
+    thanks.textContent = g + ' to you too.';
+    render();
+  });
+
+  fetch('data/africa.json').then(function (r) { return r.json(); }).then(function (data) {
+    countries = data;
+    data.forEach(function (c) { byId[c.id] = c; });
+    map.textContent = '';
+    var landLayer = document.createElementNS(NS, 'g');
+    data.forEach(function (c) {
+      var el;
+      if (c.isl) { el = document.createElementNS(NS, 'circle'); el.setAttribute('cx', c.cx); el.setAttribute('cy', c.cy); el.setAttribute('r', 7); el.setAttribute('class', 'isle'); }
+      else { el = document.createElementNS(NS, 'path'); el.setAttribute('d', c.d); el.setAttribute('class', 'land'); }
+      var t = document.createElementNS(NS, 'title'); t.textContent = c.name; el.appendChild(t);
+      el.addEventListener('click', function () { choose(c.id); });
+      landLayer.appendChild(el); shapes[c.id] = el;
+      var o = document.createElement('option'); o.value = c.id; o.textContent = c.name; fCountry.appendChild(o);
+    });
+    var o = document.createElement('option'); o.value = 'elsewhere'; o.textContent = 'Somewhere else in the world'; fCountry.appendChild(o);
+    map.appendChild(landLayer);
+    pinLayer = document.createElementNS(NS, 'g'); map.appendChild(pinLayer);
+    render();
+  }).catch(function () {
+    map.textContent = '';
+    render();
+  });
+  render();
+})();
+</script>
+</body>
+</html>
