@@ -15,6 +15,7 @@
 <meta property="og:url" content="https://isaacnicas.github.io/masfins-chair/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..600,0..100&family=Nunito+Sans:opsz,wght@6..12,300..700&display=swap">
@@ -56,7 +57,9 @@ a{color:var(--clay)} a:hover{color:var(--coffee)}
 
 /* Header */
 header.top{display:flex; justify-content:space-between; align-items:center; gap:12px; padding-block:16px}
-.brand{text-decoration:none; color:var(--coffee); font-size:24px}
+.brand{text-decoration:none; color:var(--coffee); font-size:24px; display:inline-flex; align-items:center; gap:10px}
+.brand img{width:40px; height:40px}
+@media (prefers-color-scheme: dark){ .brand img{content:url(images/logo-mark-light.svg)} }
 .navlinks{display:none}
 .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:48px; padding:0 22px; border-radius:999px; background:var(--coffee); color:var(--paper); text-decoration:none; font-weight:700; font-size:16px; border:0; cursor:pointer; font-family:var(--body); white-space:nowrap}
 .btn:hover{color:var(--paper); background:var(--clay)}
@@ -105,9 +108,24 @@ blockquote.quote{margin:4px 0 0; padding:0; font-family:var(--display); font-sty
 .svc ul{list-style:none; margin:0; padding:0}
 .svc li{display:flex; justify-content:space-between; gap:14px; padding:12px 0; border-bottom:1px solid var(--line)}
 .price{color:var(--honey-ink); font-variant-numeric:tabular-nums; white-space:nowrap; font-weight:600}
-.extras{display:flex; flex-direction:column; gap:0; padding-top:20px; border-top:2px solid var(--coffee); scroll-margin-top:16px}
-.extras h3{margin:0 0 6px; font-size:16px}
-.extras div{display:flex; justify-content:space-between; gap:14px; padding:10px 0; border-bottom:1px solid var(--line)}
+/* Services menu: swipeable cards on phones, a 2x2 grid on wider screens */
+.swipe-hint{margin:0; color:var(--muted); font-size:14px; font-weight:600}
+.menu-track{display:grid; grid-auto-flow:column; grid-auto-columns:86%; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; overscroll-behavior-x:contain;
+  margin-inline:calc(var(--gutter) * -1) calc(var(--gutter-r) * -1); padding-inline:var(--gutter) var(--gutter-r); scroll-padding-inline:var(--gutter); scrollbar-width:none; padding-bottom:6px}
+.menu-track::-webkit-scrollbar{display:none}
+.menu-card{display:flex; flex-direction:column; background:var(--cream); border:1px solid var(--line); border-radius:18px; overflow:hidden; scroll-snap-align:start; scroll-margin-top:16px}
+.menu-art{aspect-ratio:16 / 9; border-radius:0}
+.menu-body{display:flex; flex-direction:column; gap:4px; padding:22px 20px 26px}
+.menu-body h3{font-size:32px; margin:0; line-height:1.1}
+.menu-body .tag{font-family:var(--display); font-style:italic; font-variation-settings:"SOFT" 100; color:var(--clay); font-size:18px; margin:0 0 16px}
+.menu-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:16px}
+.menu-list li{display:flex; align-items:baseline; gap:10px; font-size:17px}
+.menu-list li > span:first-child{white-space:nowrap}
+.menu-list i{flex:1; min-width:8px; border-bottom:2px dotted var(--line); transform:translateY(-5px)}
+.extras-card{display:flex; flex-direction:column; gap:14px; padding:22px; border-radius:18px; background:var(--sand); scroll-margin-top:16px}
+.extras-card h3{margin:0; font-size:26px}
+.extras-list{display:flex; flex-wrap:wrap; gap:10px}
+.extra{display:inline-flex; align-items:baseline; gap:8px; padding:11px 16px; border-radius:999px; background:var(--paper); font-size:15.5px; white-space:nowrap}
 
 /* Booking */
 .steps{display:grid; gap:28px; margin:0; padding:0; list-style:none}
@@ -184,10 +202,12 @@ footer .wrap{display:flex; flex-direction:column; gap:22px}
   .hero .ph{aspect-ratio:4 / 5; border-radius:240px 240px 8px 8px}
   .band{padding-block:112px}
   .about{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); gap:72px; align-items:start}
-  .svc-grid{grid-template-columns:repeat(2, minmax(0,1fr)); gap:56px 64px}
-  .extras{flex-direction:row; flex-wrap:wrap; gap:10px 28px; align-items:baseline}
-  .extras h3{margin:0}
-  .extras div{border:0; padding:0; gap:8px}
+  .swipe-hint{display:none}
+  .menu-track{grid-auto-flow:row; grid-auto-columns:auto; grid-template-columns:repeat(2, minmax(0,1fr)); gap:32px; overflow:visible; margin-inline:0; padding-inline:0}
+  .menu-art{aspect-ratio:16 / 8}
+  .menu-body{padding:28px 30px 34px}
+  .menu-body h3{font-size:34px}
+  .extras-card{padding:28px 30px}
   .jumps, .chips{margin-inline:0; padding-inline:0; flex-wrap:wrap; overflow:visible}
   .steps{grid-template-columns:repeat(3, minmax(0,1fr)); gap:40px}
   .steps li{grid-template-columns:1fr}
@@ -205,7 +225,7 @@ footer .wrap{display:flex; flex-direction:column; gap:22px}
 <div class="preview">First look, still in progress. Anything in [brackets] is waiting for Masfin's details, and the pictures are stand-ins for real photos.</div>
 
 <header class="wrap top">
-  <a class="brand soft" href="#top">Masfin's Chair</a>
+  <a class="brand soft" href="#top"><img src="images/logo-mark.svg" alt="" width="40" height="40">Masfin's Chair</a>
   <nav class="navlinks" aria-label="Main">
     <a href="#services">Services</a>
     <a href="#pieces">Pieces</a>
@@ -255,59 +275,67 @@ footer .wrap{display:flex; flex-direction:column; gap:22px}
         <h2 class="soft h2">A twist in the right direction.</h2>
         <p style="margin:0; max-width:44ch; color:var(--muted); font-size:15.5px">Starting prices. Length, size and added hair shape the final price, and you'll know it before the first part.</p>
       </div>
-      <nav class="jumps" aria-label="Service menu">
-        <a class="jump" href="#svc-braids">Braids</a>
-        <a class="jump" href="#svc-weaves">Weaves</a>
-        <a class="jump" href="#svc-wigs">Wigs</a>
-        <a class="jump" href="#svc-little">Little chairs</a>
-        <a class="jump" href="#svc-extras">Extras</a>
-      </nav>
-      <div class="svc-grid">
-        <div id="svc-braids" class="svc">
-          <h3 class="soft">Braids</h3>
-          <p class="tag">Good things come to those who braid.</p>
-          <ul>
-            <li><span>Box &amp; knotless braids</span><span class="price">from $[ ]</span></li>
-            <li><span>Cornrows &amp; feed-in</span><span class="price">from $[ ]</span></li>
-            <li><span>Fulani braids</span><span class="price">from $[ ]</span></li>
-            <li><span>Goddess &amp; boho braids</span><span class="price">from $[ ]</span></li>
-            <li><span>Twists</span><span class="price">from $[ ]</span></li>
-            <li><span>Crochet</span><span class="price">from $[ ]</span></li>
-          </ul>
-        </div>
-        <div id="svc-weaves" class="svc">
-          <h3 class="soft">Weaves</h3>
-          <p class="tag">Weave been expecting you.</p>
-          <ul>
-            <li><span>Sew-in weave</span><span class="price">from $[ ]</span></li>
-            <li><span>Quick weave</span><span class="price">from $[ ]</span></li>
-            <li><span>Closure or frontal install</span><span class="price">from $[ ]</span></li>
-          </ul>
-        </div>
-        <div id="svc-wigs" class="svc">
-          <h3 class="soft">Wigs</h3>
-          <p class="tag">Go wig or go home.</p>
-          <ul>
-            <li><span>Wig install</span><span class="price">from $[ ]</span></li>
-            <li><span>Wig styling &amp; refresh</span><span class="price">from $[ ]</span></li>
-          </ul>
-        </div>
-        <div id="svc-little" class="svc">
-          <h3 class="soft">Little chairs</h3>
-          <p class="tag">Picture-day ready.</p>
-          <ul>
-            <li><span>Children's braids &amp; cornrows</span><span class="price">from $[ ]</span></li>
-            <li><span>Children's twists with beads</span><span class="price">from $[ ]</span></li>
-          </ul>
-        </div>
+      <p class="swipe-hint">Swipe through the menu →</p>
+      <div class="menu-track" role="list">
+        <article id="svc-braids" class="menu-card" role="listitem">
+          <div class="ph menu-art"><img src="images/knotless.svg" alt="" loading="lazy"><span class="ph-label">Photo to come</span></div>
+          <div class="menu-body">
+            <h3 class="soft">Braids</h3>
+            <p class="tag">Good things come to those who braid.</p>
+            <ul class="menu-list">
+              <li><span>Box &amp; knotless</span><i aria-hidden="true"></i><span class="price">from $[ ]</span></li>
+              <li><span>Cornrows &amp; feed-in</span><i aria-hidden="true"></i><span class="price">from $[ ]</span></li>
+              <li><span>Fulani</span><i aria-hidden="true"></i><span class="price">from $[ ]</span></li>
+              <li><span>Goddess &amp; boho</span><i aria-hidden="true"></i><span class="price">from $[ ]</span></li>
+              <li><span>Twists</span><i aria-hidden="true"></i><span class="price">from $[ ]</span></li>
+              <li><span>Crochet</span><i aria-hidden="true"></i><span class="price">from $[ ]</span></li>
+            </ul>
+          </div>
+        </article>
+        <article id="svc-weaves" class="menu-card" role="listitem">
+          <div class="ph menu-art"><img src="images/sewin.svg" alt="" loading="lazy"><span class="ph-label">Photo to come</span></div>
+          <div class="menu-body">
+            <h3 class="soft">Weaves</h3>
+            <p class="tag">Weave been expecting you.</p>
+            <ul class="menu-list">
+              <li><span>Sew-in</span><i aria-hidden="true"></i><span class="price">from $[ ]</span></li>
+              <li><span>Quick weave</span><i aria-hidden="true"></i><span class="price">from $[ ]</span></li>
+              <li><span>Closure or frontal</span><i aria-hidden="true"></i><span class="price">from $[ ]</span></li>
+            </ul>
+          </div>
+        </article>
+        <article id="svc-wigs" class="menu-card" role="listitem">
+          <div class="ph menu-art"><img src="images/wig.svg" alt="" loading="lazy"><span class="ph-label">Photo to come</span></div>
+          <div class="menu-body">
+            <h3 class="soft">Wigs</h3>
+            <p class="tag">Go wig or go home.</p>
+            <ul class="menu-list">
+              <li><span>Wig install</span><i aria-hidden="true"></i><span class="price">from $[ ]</span></li>
+              <li><span>Styling &amp; refresh</span><i aria-hidden="true"></i><span class="price">from $[ ]</span></li>
+            </ul>
+          </div>
+        </article>
+        <article id="svc-little" class="menu-card" role="listitem">
+          <div class="ph menu-art"><img src="images/little.svg" alt="" loading="lazy"><span class="ph-label">Photo to come</span></div>
+          <div class="menu-body">
+            <h3 class="soft">Little chairs</h3>
+            <p class="tag">Picture-day ready.</p>
+            <ul class="menu-list">
+              <li><span>Braids &amp; cornrows</span><i aria-hidden="true"></i><span class="price">from $[ ]</span></li>
+              <li><span>Twists with beads</span><i aria-hidden="true"></i><span class="price">from $[ ]</span></li>
+            </ul>
+          </div>
+        </article>
       </div>
-      <div id="svc-extras" class="extras">
-        <h3>Extras</h3>
-        <div><span>Take-down</span><span class="price">from $[ ]</span></div>
-        <div><span>Wash &amp; blow-dry</span><span class="price">from $[ ]</span></div>
-        <div><span>Detangle</span><span class="price">from $[ ]</span></div>
-        <div><span>Beads</span><span class="price">from $[ ]</span></div>
-        <div><span>Hair supplied</span><span class="price">[ask]</span></div>
+      <div id="svc-extras" class="extras-card">
+        <h3 class="soft">Little extras</h3>
+        <div class="extras-list">
+          <span class="extra">Take-down <span class="price">from $[ ]</span></span>
+          <span class="extra">Wash &amp; blow-dry <span class="price">from $[ ]</span></span>
+          <span class="extra">Detangle <span class="price">from $[ ]</span></span>
+          <span class="extra">Beads <span class="price">from $[ ]</span></span>
+          <span class="extra">Hair supplied <span class="price">ask us</span></span>
+        </div>
       </div>
     </div>
   </section>
@@ -431,7 +459,7 @@ footer .wrap{display:flex; flex-direction:column; gap:22px}
 <footer>
   <div class="wrap">
     <div class="stack" style="gap:6px; min-width:0">
-      <span class="soft" style="font-size:22px; color:var(--night-fg)">Masfin's Chair</span>
+      <span class="soft" style="font-size:22px; color:var(--night-fg); display:inline-flex; align-items:center; gap:12px"><img src="images/logo-mark-light.svg" alt="" width="44" height="44">Masfin's Chair</span>
       <span style="font-family:var(--display); font-style:italic; font-size:16px">No need to get your hair in a twist. That's our job.</span>
       <span>Studio · [area], Calgary, AB · WhatsApp <span class="wa-num"></span></span>
     </div>
@@ -454,7 +482,7 @@ footer .wrap{display:flex; flex-direction:column; gap:22px}
 
 <script>
 // ---- Edit these two lines when Masfin confirms his details ----
-var WHATSAPP_NUMBER = '587718224X';   // 10 digits, no spaces. X = digit still missing.
+var WHATSAPP_NUMBER = '5877182244';   // 10 digits, no spaces.
 var BOOKING_MESSAGE = "Hello! I'd like to book a style.";
 // ----------------------------------------------------------------
 
